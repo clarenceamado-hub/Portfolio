@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clarence Amado - Portfolio</title>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-image: 
+          linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.85)),
+          url('https://media1.tenor.com/m/EUz54nrYhgkAAAAC/endless-black.gif');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: #ffffff;
+        font-family: arial;
+        text-align: justify;
+        margin: 0;
+        padding: 20px;
+      }
+
+      h1, .red-banner {
+        font-size: 50px;
+        color: #000000;
+        margin: 10px 0 30px 0;
+        letter-spacing: 20px;
+        text-align: center;
+        font-family: IMPACT;
+        background-color: RED;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        font-size: 50px;
+        color: Red;
+        margin: 0 0 15px 0;
+        text-transform: uppercase;
+        font-family: IMPACT;
+      }
+
+      h2.red-banner {
+        color: #000000;
+        margin-bottom: 40px;
+      }
+
+      .right-heading {
+        text-align: right;
+      }
+
+      p {
+        line-height: 1.6;
+        font-family: Trebuchet MS;
+        text-transform: uppercase;
+        font-size: 16px;
+      }
+
+      img {
+        max-width: 75%;
+        border: 2px solid #ffffff;
+        display: block;
+        margin: auto;
+        margin-top: 100px;
+      }
+
+      .enlargeable-img {
+        cursor: pointer;
+      }
+
+      /* PRINT-POSTER OFFSET HOVER SHADOWS */
+      .box,
+      .about-box,
+      .render-frame,
+      .enlargeable-img,
+      .contact-box,
+      .layout iframe {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .box:hover,
+      .about-box:hover,
+      .render-frame:hover,
+      .enlargeable-img:hover,
+      .contact-box:hover,
+      .layout iframe:hover {
+        transform: translate(-4px, -4px);
+        box-shadow: 6px 6px 0px red;
+      }
+
+      /* ARTWORK OF THE DAY PERSISTENT SHADOW + HOVER LIFT */
+      .featured-artwork {
+        box-shadow: 6px 6px 0px red;
+      }
+
+      .featured-artwork:hover {
+        transform: translate(-4px, -4px);
+        box-shadow: 10px 10px 0px red;
+      }
+
+      a, .details-btn {
+        color: #ffffff;
+        text-decoration: none;
+        border: 2px solid red;
+        padding: 10px 20px; 
+        font-family: Trebuchet MS; 
+        display: inline-block;
+        font-size: 16px;
+        background-color: transparent;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      a:hover, .details-btn:hover {
+        background-color: #ffffff;
+        color: #000000;
+        transform: translate(-2px, -2px);
+        box-shadow: 4px 4px 0px red;
+      }
+
+      .banner {
+        color: Red;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 25px;
+        font-family: IMPACT;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-menu {
+        font-size: 16px;
+        font-family: Trebuchet MS;
+        color: white;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .nav-menu a {
+        border: none;
+        padding: 5px 10px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: color 0.2s ease, background-color 0.2s ease;
+      }
+
+      .nav-menu a:hover {
+        background-color: red;
+        color: #ffffff;
+        transform: none;
+        box-shadow: none;
+      }
+
+      #about, #projects, #contact {
+        scroll-margin-top: 25px;
+      }
+
+      .layout {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 150px;
+        align-items: center; 
+      }
+
+      .layout iframe {
+        border: 2px solid #ffffff;
+        box-sizing: border-box;
+      }
+
+      .left_side, .right_side {
+        flex: 1;
+      }
+
+      .left_side {
+        margin-left: 40px;
+      }
+
+      .artwork-caption {
+        text-align: center;
+        margin-top: 16px;
+        margin-bottom: 0;
+        letter-spacing: 4px;
+        font-weight: bold;
+        color: red;
+      }
+
+      .box {
+        border: 2px solid #ffffff;
+        padding: 20px;
+        margin-bottom: 20px;
+        margin-left: 100px;
+        margin-top: 50px;
+      }
+
+      .box-borderless {
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      /* ABOUT ME SECTION STYLES */
+      #about {
+        margin-bottom: 150px;
+      }
+
+      .about-img-container {
+        width: 100%;
+        margin-bottom: 50px;
+      }
+
+      .about-img-container img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        border: 2px solid #ffffff;
+        box-sizing: border-box;
+        margin: 0;
+        box-shadow: 6px 6px 0px red;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .about-img-container img:hover {
+        transform: translate(-4px, -4px);
+        box-shadow: 10px 10px 0px red;
+      }
+
+      .about-box {
+        border: 2px solid #ffffff;
+        padding: 25px 30px 30px 30px;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .about-box p:first-child {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      .mediums-divider {
+        border: none;
+        border-top: 2px solid #ffffff;
+        margin: 24px 0 20px 0;
+      }
+
+      .mediums-heading {
+        font-family: IMPACT;
+        font-size: 26px;
+        color: red;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin: 0 0 14px 0;
+        text-align: center;
+      }
+
+      .mediums-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .medium-tag {
+        font-family: Trebuchet MS;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #ffffff;
+        background-color: #000000;
+        border: 2px solid #ffffff;
+        padding: 7px 14px;
+        box-shadow: 3px 3px 0px red;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .medium-tag:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 5px 5px 0px red;
+      }
+
+      hr {
+        border: 1px solid #ffffff;
+        margin-bottom: 50px;
+      }
+
+      .button-container {
+        text-align: center;
+      }
+
+      .renders-grid, .illustrations-grid {
+        display: flex;
+        gap: 15px;
+        justify-content: space-between;
+        margin-bottom: 70px;
+      }
+
+      .illustrations-grid {
+        margin-bottom: 80px;
+      }
+
+      .illustration-card {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .portfolio-img {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+        background-color: #ffffff;
+        box-sizing: border-box;
+      }
+
+      /* 3D RENDERS FLIP CARD STYLES */
+      .render-card {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .render-frame {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 3 / 2;
+        border: 2px solid #ffffff;
+        box-sizing: border-box;
+        overflow: hidden;
+        background-color: #000000;
+      }
+
+      .render-img {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        margin: 0;
+        border: none;
+        object-fit: cover;
+        display: block;
+      }
+
+      .render-overlay {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.35s ease;
+      }
+
+      .render-card.is-flipped .render-overlay {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .render-gradient {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.92) 0%,
+          rgba(0, 0, 0, 0.55) 55%,
+          rgba(0, 0, 0, 0.15) 100%
+        );
+        display: flex;
+        align-items: flex-end;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      .render-gradient p {
+        margin: 0;
+        color: #ffffff;
+        font-size: 15px;
+        line-height: 1.5;
+        text-align: left;
+      }
+
+      .details-btn {
+        margin-top: 18px;
+      }
+
+      /* LIGHTBOX MODAL STYLES */
+      .lightbox-modal {
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.92);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        z-index: 1000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+      }
+
+      .lightbox-modal.is-open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .lightbox-img {
+        max-width: 90vw;
+        max-height: 75vh;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border: 2px solid #ffffff;
+        box-shadow: 6px 6px 0px red;
+        background-color: #000000;
+        margin: 0;
+      }
+
+      .lightbox-caption {
+        margin: 16px 0 0 0;
+        color: red;
+        font-weight: bold;
+        letter-spacing: 3px;
+        text-align: center;
+      }
+
+      /* QUICK RETURN TO HOME BUTTON */
+      .back-to-top {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        z-index: 900;
+        background-color: #000000;
+        border: 2px solid red;
+        color: #ffffff;
+        font-weight: bold;
+        padding: 10px 16px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease, background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .back-to-top.is-visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      /* CONTACT SECTION STYLES */
+      #contact {
+        padding: 20px 0 80px 0;
+      }
+
+      .contact-box {
+        border: 2px solid #ffffff;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 35px 30px 45px 30px;
+        text-align: center;
+      }
+
+      .contact-box h2 {
+        margin-bottom: 35px;
+      }
+
+      .contact-items {
+        display: flex;
+        justify-content: space-around;
+        align-items: stretch;
+        gap: 25px;
+        flex-wrap: wrap;
+      }
+
+      .contact-item {
+        flex: 1;
+        min-width: 220px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .contact-item img {
+        width: 85px;
+        height: 60px;
+        max-width: 85px;
+        object-fit: contain;
+        background-color: #ffffff;
+        padding: 6px;
+        box-sizing: border-box;
+        border: 2px solid #ffffff;
+        margin: 0 0 15px 0;
+      }
+
+      .contact-item p {
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 14px;
+        text-align: center;
+        margin: 0 0 15px 0;
+        word-break: break-word;
+      }
+
+      .lowercase {
+        text-transform: none;
+      }
+
+      .contact-item a,
+      .contact-item .details-btn {
+        margin-top: auto;
+      }
+
+      /* MOBILE & TABLET RESPONSIVENESS */
+      @media (max-width: 768px) {
+        body {
+          padding: 15px;
+        }
+
+        .box:hover,
+        .about-box:hover,
+        .render-frame:hover,
+        .enlargeable-img:hover,
+        .contact-box:hover,
+        .layout iframe:hover {
+          transform: translate(-2px, -2px);
+          box-shadow: 4px 4px 0px red;
+        }
+
+        .featured-artwork,
+        .about-img-container img {
+          box-shadow: 4px 4px 0px red;
+        }
+
+        .featured-artwork:hover,
+        .about-img-container img:hover {
+          transform: translate(-2px, -2px);
+          box-shadow: 6px 6px 0px red;
+        }
+
+        .banner {
+          flex-direction: column;
+          gap: 10px;
+          text-align: center;
+        }
+
+        .nav-menu {
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 4px;
+          font-size: 14px;
+        }
+
+        .nav-menu a {
+          padding: 5px 6px;
+        }
+
+        h1, .red-banner {
+          font-size: 28px;
+          letter-spacing: 6px;
+          padding: 8px 4px;
+          margin: 15px 0 25px 0;
+        }
+
+        h2 {
+          font-size: 34px;
+        }
+
+        .layout {
+          flex-direction: column;
+          gap: 25px;
+          margin-bottom: 80px;
+        }
+
+        .left_side, .right_side {
+          width: 100%;
+          margin-left: 0;
+        }
+
+        .box {
+          margin-left: 0;
+          margin-top: 10px;
+          padding: 18px;
+        }
+
+        .right_side img {
+          max-width: 100%;
+          margin-top: 10px;
+        }
+
+        #about {
+          margin-bottom: 80px;
+        }
+
+        .about-img-container {
+          margin-bottom: 25px;
+        }
+
+        .about-box {
+          padding: 18px 20px 24px 20px;
+        }
+
+        .mediums-heading {
+          font-size: 22px;
+        }
+
+        .medium-tag {
+          font-size: 13px;
+          padding: 6px 11px;
+        }
+
+        .renders-grid {
+          flex-direction: column;
+          gap: 35px;
+          margin-bottom: 60px;
+        }
+
+        .render-gradient {
+          padding: 14px;
+        }
+
+        .render-gradient p {
+          font-size: 13px;
+          line-height: 1.4;
+        }
+
+        .illustrations-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 15px;
+          margin-bottom: 60px;
+        }
+
+        .illustration-card .details-btn {
+          padding: 8px 14px;
+          font-size: 14px;
+          margin-top: 12px;
+        }
+
+        .back-to-top {
+          bottom: 15px;
+          right: 15px;
+          padding: 8px 12px;
+          font-size: 14px;
+        }
+
+        #contact {
+          padding: 10px 0 50px 0;
+        }
+
+        .contact-box {
+          padding: 25px 15px 35px 15px;
+        }
+
+        .contact-items {
+          flex-direction: column;
+          align-items: center;
+          gap: 30px;
+        }
+
+        .contact-item {
+          min-width: 0;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HOME SECTION -->
+    <div id="home">
+      <div class="banner">
+        <span>INDIRVA</span>
+        <nav class="nav-menu">
+          <a href="#home">HOME</a>
+          <span>|</span>
+          <a href="#about">ABOUT</a>
+          <span>|</span>
+          <a href="#projects">PROJECTS</a>
+          <span>|</span>
+          <a href="#contact">CONTACT</a>
+        </nav>
+      </div>
+
+      <h1>KEEP CREATING ST*FF</h1>
+
+      <div class="layout">
+        <div class="left_side">
+          <div class="box">
+            <h2>WELCOME</h2>
+            <p>Clarence "Indirva" is a digital animation student based in the Philippines, who just wants to make something.</p>
+          </div>
+        </div>
+
+        <div class="right_side">
+          <img class="enlargeable-img featured-artwork" src="https://scontent-mnl1-1.xx.fbcdn.net/v/t39.30808-6/854992900_39549636571316450_2919801413153098233_n.avif?stp=dst-jpg_tt6&cstp=mx2048x2048&ctp=s2048x2048&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEvQbySb9iU_SdCTBity5wVItpzA27Aq5Mi2nMDbsCrk-g2-o8Z0LmAg7O_8CWhHU8EnDuxpjzq_17LM-MelMUv&_nc_ohc=GkiHPKwV-FQQ7kNvwElbPHl&_nc_oc=AdphK2CI9x91y7cYPtOm5ioSpt1uv949Pgj7896-kaVif1fdcl7Mpj7pn6k-v33vQUc&_nc_zt=23&_nc_ht=scontent-mnl1-1.xx&_nc_gid=UFvyDLZGNL5WWFSi7Mw22Q&_nc_ss=7a2a8&oh=00_AQRA-ipi_-XxOT6tbOq1VvOtHiQPQrQBa03_mkBcslYIiA&oe=6AFE03F1" alt="Artwork of the day" onclick="openLightbox(this)">
+          <p class="artwork-caption">Artwork of the day</p>
+          <div class="button-container">
+            <button type="button" class="details-btn" onclick="openLightbox(this)">ENLARGE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT ME SECTION -->
+    <div id="about">
+      <h2 class="red-banner">ABOUT ME</h2>
+
+      <div class="about-img-container">
+        <img src="https://mir-s3-cdn-cf.behance.net/f1e826961b81bc4c8bcebeac13ac9829/b866587e-71c8-4559-a058-325a6cec850a_rwc_0x224x2658x368x2658.png?h=a22f4cb390e29fab83bb5adbef6d715e" alt="About Clarence">
+      </div>
+
+      <div class="about-box">
+        <p>Specializing in 2D art, I draw visuals, design characters and from digital to traditional mediums. I also do a lot of 3D rendering, animation video editing and music production allowing me to take 2D concepts and expand it into full motion and sound.</p>
+
+        <hr class="mediums-divider">
+
+        <h3 class="mediums-heading">MEDIUMS</h3>
+        <ul class="mediums-list">
+          <li class="medium-tag">KRITA</li>
+          <li class="medium-tag">BLENDER</li>
+          <li class="medium-tag">ADOBE PREMIERE</li>
+          <li class="medium-tag">FL STUDIO</li>
+          <li class="medium-tag">PEN AND PAPER</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PROJECTS SECTION -->
+    <div id="projects">
+      <h2 class="red-banner">PROJECTS</h2>
+
+      <div class="layout">
+        <div class="left_side">
+          <iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/9sbshKjLMFo?si=2r5lI76ClJYacIHx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="right_side">
+          <div class="box-borderless">
+            <h2>FILM</h2>
+            <p>A surreal, short film shot and edited by our team Imagimption. Starring the talented KC Martinez and Jairus Caraan</p>
+          </div>
+          <div class="button-container">
+            <a href="https://www.youtube.com/watch?v=9sbshKjLMFo" target="_blank">YOUTUBE LINK</a>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="right-heading">3D RENDERS</h2>
+      <div class="renders-grid">
+        <!-- 3D RENDER 1 -->
+        <div class="render-card">
+          <div class="render-frame">
+            <img class="render-img" src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/0f921a234035283.6af93e4056cbb.png" alt="3D Render 1">
+            <div class="render-overlay">
+              <img class="render-img" src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/25c61e234035283.6af943909faff.png" alt="3D Render 1 Viewport">
+              <div class="render-gradient">
+                <p>a shot inspired by original poster of batman beyond rendered in blender exploring its style but in 3d</p>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="details-btn" onclick="toggleRender(this)">DETAILS</button>
+        </div>
+
+        <!-- 3D RENDER 2 -->
+        <div class="render-card">
+          <div class="render-frame">
+            <img class="render-img" src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/b268da234035283.6af93e40573c2.png" alt="3D Render 2">
+            <div class="render-overlay">
+              <img class="render-img" src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/a5f49b234035283.6af94390a01ef.png" alt="3D Render 2 Viewport">
+              <div class="render-gradient">
+                <p>an overview shot of gotham from batman beyond, studying its structure in 3d.</p>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="details-btn" onclick="toggleRender(this)">DETAILS</button>
+        </div>
+      </div>
+
+      <h2>illustrations</h2>
+      <div class="illustrations-grid">
+        <div class="illustration-card">
+          <img class="portfolio-img enlargeable-img" src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/118cd1234031893.6ac64f0877f35.png" alt="Tom Holland in Spider-Man: Brand New Day" onclick="openLightbox(this)">
+          <button type="button" class="details-btn" onclick="openLightbox(this)">ENLARGE</button>
+        </div>
+
+        <div class="illustration-card">
+          <img class="portfolio-img enlargeable-img" src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/bf7cfb234031893.6ac64f0876feb.png" alt="Hunter Schafer as Zelda" onclick="openLightbox(this)">
+          <button type="button" class="details-btn" onclick="openLightbox(this)">ENLARGE</button>
+        </div>
+
+        <div class="illustration-card">
+          <img class="portfolio-img enlargeable-img" src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/9814b1234031893.6ac64f0877806.png" alt="Sports Cover for a Volleyball Article" onclick="openLightbox(this)">
+          <button type="button" class="details-btn" onclick="openLightbox(this)">ENLARGE</button>
+        </div>
+
+        <div class="illustration-card">
+          <img class="portfolio-img enlargeable-img" src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/bd800d234031893.6ac64f08786ee.png" alt="Megan Lawless in Obsession" onclick="openLightbox(this)">
+          <button type="button" class="details-btn" onclick="openLightbox(this)">ENLARGE</button>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- CONTACT SECTION -->
+    <div id="contact">
+      <div class="contact-box">
+        <h2>CONTACT</h2>
+        <div class="contact-items">
+          <div class="contact-item">
+            <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/3840px-Instagram_logo_2022.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="Instagram">
+            <p>Instagram: <span class="lowercase">@indi.rva</span></p>
+            <a href="https://www.instagram.com/indi.rva/" target="_blank" rel="noopener noreferrer">VISIT</a>
+          </div>
+
+          <div class="contact-item">
+            <img src="https://1000logos.net/wp-content/uploads/2020/11/Behance-Logo-2020.jpg" alt="Behance">
+            <p>behance: clarence amado</p>
+            <a href="https://www.behance.net/clarenceamado" target="_blank" rel="noopener noreferrer">VISIT</a>
+          </div>
+
+          <div class="contact-item">
+            <img src="https://static.vecteezy.com/system/resources/previews/021/514/743/non_2x/google-gmail-logo-symbol-design-illustration-free-vector.jpg" alt="Gmail">
+            <p>gmail: <span class="lowercase">clarencejoshamado@gmail.com</span></p>
+            <button type="button" class="details-btn" onclick="copyEmail(this)">COPY</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox(event)">
+      <img id="lightboxImg" class="lightbox-img" src="" alt="">
+      <p id="lightboxCaption" class="lightbox-caption"></p>
+      <button type="button" class="details-btn" onclick="closeLightbox()">CLOSE</button>
+    </div>
+
+    <!-- QUICK RETURN TO HOME BUTTON -->
+    <a href="#home" id="backToTopBtn" class="back-to-top" title="Return to top">↑ HOME</a>
+
+    <script>
+      function toggleRender(button) {
+        const card = button.closest('.render-card');
+        card.classList.toggle('is-flipped');
+
+        if (card.classList.contains('is-flipped')) {
+          button.textContent = 'FINAL RENDER';
+        } else {
+          button.textContent = 'DETAILS';
+        }
+      }
+
+      function openLightbox(trigger) {
+        const img = trigger.tagName === 'IMG'
+          ? trigger
+          : trigger.closest('.illustration-card, .right_side').querySelector('img');
+
+        const modal = document.getElementById('lightboxModal');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightboxCaption.textContent = img.alt;
+        modal.classList.add('is-open');
+      }
+
+      function closeLightbox(event) {
+        if (!event || event.target.id === 'lightboxModal') {
+          document.getElementById('lightboxModal').classList.remove('is-open');
+        }
+      }
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          closeLightbox();
+        }
+      });
+
+      const backToTopBtn = document.getElementById('backToTopBtn');
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 300) {
+          backToTopBtn.classList.add('is-visible');
+        } else {
+          backToTopBtn.classList.remove('is-visible');
+        }
+      });
+
+      let copyTimeout;
+      function copyEmail(button) {
+        const email = 'clarencejoshamado@gmail.com';
+
+        function showCopiedState() {
+          button.textContent = 'COPIED!';
+          clearTimeout(copyTimeout);
+          copyTimeout = setTimeout(function () {
+            button.textContent = 'COPY';
+          }, 2000);
+        }
+
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(email).then(showCopiedState).catch(function () {
+            fallbackCopy(email, showCopiedState);
+          });
+        } else {
+          fallbackCopy(email, showCopiedState);
+        }
+      }
+
+      function fallbackCopy(text, callback) {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.opacity = '0';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        try {
+          document.execCommand('copy');
+          callback();
+        } catch (err) {
+          console.error('Copy failed', err);
+        }
+        document.body.removeChild(textArea);
+      }
+    </script>
+  </body>
+</html>
